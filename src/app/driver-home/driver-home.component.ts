@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { GeoLocationService } from 'src/shared/services/geo-location.service';
+// import { default as zoneJSON } from 'server/clusters.json';
+import { tileLayer, latLng } from 'leaflet';
+import { ClustersService } from 'src/shared/services/clusters.service';
 
 @Component({
   selector: 'app-driver-home',
@@ -11,11 +14,18 @@ import { GeoLocationService } from 'src/shared/services/geo-location.service';
 export class DriverHomeComponent implements OnInit {
 
   coordinates = {longitude: 0, latitude: 0};
-  zoom = 10;
+  zoom = 12;
   // initial center position for the map
   lat = 51.673858;
   lng = 7.815982;
   red = '#FF0000';
+
+  options;
+
+  infoWindowPos = '';
+  infoContent   = '';
+  infoWinOpen   = false;
+
 
   markers: Marker[] = [
     {
@@ -37,13 +47,31 @@ export class DriverHomeComponent implements OnInit {
       draggable: true
   }];
 
-  zones = [
-    {paths: [{lat: 48.135, lng: 11.582},
-    {lat: 48.5, lng: 12},
-    {lat: 47.5, lng: 12}]}
-  ];
+  driver: Marker;
 
-  constructor(public geoLocationService: GeoLocationService) {
+  // zones = [
+  //   {paths: [{lat: 48.135, lng: 11.582},
+  //   {lat: 48.5, lng: 12},
+  //   {lat: 47.5, lng: 12},
+  //   {lat: 47.1, lng: 13}]},
+  //   {paths: [{lat: 11.572380065917969, lng: 48.14524334899598},
+  //     {lat: 11.557273864746094, lng: 48.13997423269043},
+  //     {lat: 11.564483642578125, lng: 48.130350972491556},
+  //     {lat: 11.584396362304688, lng: 48.13447544771421},
+  //     {lat: 11.572380065917969, lng: 48.14524334899598}]}
+  // ];
+
+  zones: Zone[] = [];
+
+  colorCode = {
+    1: '#FA7921',
+    2: '#FE9920',
+    3: '#B9A44C',
+    4: '#566E3D',
+    5: '#0C4767'
+  };
+
+  constructor(public geoLocationService: GeoLocationService, public clustersService: ClustersService) {
     // if (navigator) {
     //   navigator.geolocation.getCurrentPosition( pos => {
     //     console.log(pos.coords.longitude);
@@ -51,6 +79,7 @@ export class DriverHomeComponent implements OnInit {
     //     this.coordinates.latitude = +pos.coords.latitude;
     //   });
     // }
+    
   }
 
   clickedMarker(label: string, index: number) {
@@ -70,20 +99,97 @@ export class DriverHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.clustersService.getClusters().then(res => {
+      this.processZones(res);
+    });
+
     this.geoLocationService.getPosition().subscribe(
     (pos: Position) => {
         this.coordinates = {
           latitude:  +(pos.coords.latitude),
           longitude: +(pos.coords.longitude)
         };
+        this.driver = {
+          lat: +(pos.coords.latitude),
+          lng: +(pos.coords.longitude),
+          label: 'Driver is here',
+          draggable: false
+        };
+        this.options = {
+          layers: [
+            tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 })
+          ],
+          zoom: 5,
+          center: latLng(this.coordinates.latitude, this.coordinates.longitude)
+        };
+        console.log(this.options);
     });
+  }
+
+  processZones(zoneJSON) {
+    for (const zone of zoneJSON.features) {
+      const paths = [];
+      let weight = 0;
+      let id = -1;
+      let sumLat = 0;
+      let sumLong = 0;
+      let cnt = 0;
+
+      // console.log(zone);
+      if (zone['properties']) {
+        id = zone['properties'].id;
+        weight = zone['properties'].weight;
+      }
+      if (zone['geometry']) {
+        // console.log(zone['geometry']);
+        const allPoints = zone['geometry']['coordinates'][0];
+        // console.log(allPoints);
+        for (const point of allPoints) {
+          paths.push({lng: point[0], lat: point[1]});
+          sumLat += point[1];
+          sumLong += point[0];
+          cnt ++;
+        }
+      }
+      const zoneCenter = {lat: sumLat / cnt, lng: sumLong / cnt};
+      this.zones.push({id, paths, weight, zoneCenter});
+    }
+    console.log(this.zones);
+  }
+
+  getColorCode(weight) {
+    return this.colorCode[weight];
+  }
+
+  zoneClick(event, center, id) {
+    const contentString = 'Go to zone ' + id;
+    this.infoWindowPos = center;
+    this.infoContent = contentString;
+    this.infoWinOpen = true;
+
+    console.log(this.infoWindowPos);
   }
 }
 
+
+
 // just an interface for type safety.
 interface Marker {
-lat: number;
-lng: number;
-label?: string;
-draggable: boolean;
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+}
+
+interface Zone {
+  id: number;
+  paths: Coord[];
+  weight: number;
+  zoneCenter: Coord;
+}
+
+interface Coord {
+  lat: number;
+  lng: number;
 }

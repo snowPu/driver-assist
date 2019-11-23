@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-4 offset-md-4" *ngIf="zones.length > 0">
         <h1>Hi Driver</h1>
-        <agm-map 
+        <agm-map
         [latitude]="coordinates.latitude"
         [longitude]="coordinates.longitude"
         [zoom]="zoom"
@@ -9,19 +9,36 @@
         [zoomControl]="false"
         (mapClick)="mapClicked($event)">
         
-        <agm-polygon *ngFor="let zone of zones" [fillColor]="red"
+        <agm-polygon *ngFor="let zone of zones" [fillColor]="getColorCode(zone.weight)"
             [fillOpacity]="0.5" [paths]="zone.paths"
             [strokeColor]="blue" [strokeOpacity]="0.6" [strokeWeight]="2"
-            [visible]="true" [zIndex]="1"></agm-polygon>
+            [visible]="true" [zIndex]="1"
+            (polyClick)="zoneClick($event, zone.zoneCenter, zone.id)"
+        >
+        
+        <agm-info-window>
+        <strong>InfoWindow content</strong>
+        </agm-info-window>
+        
+        </agm-polygon>
+
+        <agm-snazzy-info-window #infoWindow 
+        [isOpen]="infoWinOpen"
+        [latitude]="infoWindowPos.lat" 
+        [longitude]="infoWindowPos.lng" 
+        [maxWidth]="200">
+            <ng-template>
+                {{ infoContent }}
+            </ng-template>
+        </agm-snazzy-info-window>  
 
         <agm-marker 
-            *ngFor="let m of markers; let i = index"
             (markerClick)="clickedMarker(m.label, i)"
-            [latitude]="m.lat"
-            [longitude]="m.lng"
-            [label]="m.label"
-            [markerDraggable]="m.draggable"
-            (dragEnd)="markerDragEnd(m, $event)">
+            [latitude]="driver.lat"
+            [longitude]="driver.lng"
+            [label]="driver.label"
+            [markerDraggable]="driver.draggable"
+            (dragEnd)="markerDragEnd(driver, $event)">
             
             <agm-info-window>
             <strong>InfoWindow content</strong>
@@ -29,13 +46,18 @@
             
         </agm-marker>
         
-        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+        <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
             [radius]="5000"
             [fillColor]="'red'"
             [circleDraggable]="true"
             [editable]="true">
-        </agm-circle>
+        </agm-circle> -->
         
         </agm-map>
+
+        <!-- <div style="height: 300px;" *ngIf="options"
+            leaflet 
+            [leafletOptions]="options">
+        </div> -->
     </div>
 </div>
