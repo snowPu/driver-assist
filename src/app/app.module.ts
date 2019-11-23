@@ -11,6 +11,8 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { HttpClientModule } from '@angular/common/http';
 import { GodHomeComponent } from './god-home/god-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, MatFormField, MatFormFieldModule, MatInputModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -25,10 +27,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     LeafletModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAd1JRFXwAPZ1AgFg11qRlPWlyZp-K2PzE'
+      apiKey: 'AIzaSyCkSRhu1UaZsV8hyDEhzslao-oC-OjdChc'
     }),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ],
   providers: [ HttpClientModule ],
   bootstrap: [AppComponent]

@@ -5,6 +5,8 @@ import { GeoLocationService } from 'src/shared/services/geo-location.service';
 // import { default as zoneJSON } from 'server/clusters.json';
 import { tileLayer, latLng } from 'leaflet';
 import { ClustersService } from 'src/shared/services/clusters.service';
+import { MatDatepickerInputEvent } from '@angular/material';
+import { SupermarketService } from 'src/shared/services/supermarket.service';
 
 @Component({
   selector: 'app-god-home',
@@ -21,6 +23,7 @@ export class GodHomeComponent implements OnInit {
   red = '#FF0000';
   currentZoneID = null;
   updatedWeight = 1;
+  dateInput = null;
 
   options;
 
@@ -32,6 +35,14 @@ export class GodHomeComponent implements OnInit {
     scaledSize: {
         width: 50,
         height: 50
+    }
+  };
+
+  supermarketIcon = {
+    url: './assets/icons/supermarket.png',
+    scaledSize: {
+        width: 20,
+        height: 20
     }
   };
 
@@ -55,6 +66,8 @@ export class GodHomeComponent implements OnInit {
       label: 'C',
       draggable: true
   }];
+
+  supermarkets = [];
 
   god: Marker;
 
@@ -87,7 +100,9 @@ export class GodHomeComponent implements OnInit {
     5: 'Very High Demand'
   };
 
-  constructor(public geoLocationService: GeoLocationService, public clustersService: ClustersService) {
+  constructor(public geoLocationService: GeoLocationService,
+              public clustersService: ClustersService,
+              public supermarketService: SupermarketService) {
     // if (navigator) {
     //   navigator.geolocation.getCurrentPosition( pos => {
     //     console.log(pos.coords.longitude);
@@ -120,6 +135,18 @@ export class GodHomeComponent implements OnInit {
         console.log(res);
         this.processZones(res);
       }
+    });
+
+    this.supermarketService.getSupermarkets().then(res => {
+      if (res['Munich']) {
+        res['Munich'].forEach(markt => {
+          this.supermarkets.push({
+            lat: markt.latitude,
+            lng: markt.longitude
+          });
+        });
+      }
+      console.log(res['Munich']);
     });
 
     this.geoLocationService.getPosition().subscribe(
@@ -196,6 +223,13 @@ export class GodHomeComponent implements OnInit {
         console.log(res);
         this.zones.filter(zone => zone.id === id)[0].weight = res['Updated Weight'];
       }
+    });
+  }
+
+  getZones(event: MatDatepickerInputEvent<Date>) {
+    const time = event.value.getTime();
+    this.clustersService.getBusyClusters(time).then(res => {
+      console.log(res);
     });
   }
 }

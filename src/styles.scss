@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 body {
     text-align: center;
     align-items: center;
@@ -16,4 +17,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btn-sixt:hover {
     background-color: rgb(201, 91, 7) !important;
     border-color: rgb(201, 91, 7) !important;
+}
+
+.row{
+    overflow: hidden; 
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
 }
