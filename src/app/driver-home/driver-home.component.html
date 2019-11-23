@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1>Hi Driver</h1>
+        <agm-map 
+        [latitude]="coordinates.latitude"
+        [longitude]="coordinates.longitude"
+        [zoom]="zoom"
+        [disableDefaultUI]="false"
+        [zoomControl]="false"
+        (mapClick)="mapClicked($event)">
+        
+        <agm-polygon *ngFor="let zone of zones" [fillColor]="red"
+            [fillOpacity]="0.5" [paths]="zone.paths"
+            [strokeColor]="blue" [strokeOpacity]="0.6" [strokeWeight]="2"
+            [visible]="true" [zIndex]="1"></agm-polygon>
+
+        <agm-marker 
+            *ngFor="let m of markers; let i = index"
+            (markerClick)="clickedMarker(m.label, i)"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [label]="m.label"
+            [markerDraggable]="m.draggable"
+            (dragEnd)="markerDragEnd(m, $event)">
+            
+            <agm-info-window>
+            <strong>InfoWindow content</strong>
+            </agm-info-window>
+            
+        </agm-marker>
+        
+        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+            [radius]="5000"
+            [fillColor]="'red'"
+            [circleDraggable]="true"
+            [editable]="true">
+        </agm-circle>
+        
+        </agm-map>
+    </div>
+</div>
