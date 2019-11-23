@@ -11,6 +11,7 @@ export class ClustersService {
     constructor(public http: HttpClient) {}
     getClustersEndPoint = 'https://damp-inlet-23657.herokuapp.com/getClusters';
     confirmClusterEndpoint = 'https://damp-inlet-23657.herokuapp.com/confirmClusters/';
+    updateClusterEndpoint = 'https://damp-inlet-23657.herokuapp.com/updateWeightByCluster/';
 
     httpHeaders = new HttpHeaders()
             .append('Content-Type', 'application/json')
@@ -31,6 +32,18 @@ export class ClustersService {
 
     confirmCluster(id) {
         const url = this.confirmClusterEndpoint + id + '/driver/100';
+        return this.http.get(url,
+            {headers: this.httpHeaders})
+            .toPromise()
+            .then(response => {
+                return response;
+            }).catch(error => {
+                return null;
+            });
+    }
+
+    updateClusterWeight(id, weight) {
+        const url = this.updateClusterEndpoint + id + '/weight/' + weight;
         return this.http.get(url,
             {headers: this.httpHeaders})
             .toPromise()

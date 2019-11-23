@@ -7,11 +7,11 @@ import { tileLayer, latLng } from 'leaflet';
 import { ClustersService } from 'src/shared/services/clusters.service';
 
 @Component({
-  selector: 'app-driver-home',
-  templateUrl: './driver-home.component.html',
-  styleUrls: ['./driver-home.component.scss']
+  selector: 'app-god-home',
+  templateUrl: './god-home.component.html',
+  styleUrls: ['./god-home.component.scss']
 })
-export class DriverHomeComponent implements OnInit {
+export class GodHomeComponent implements OnInit {
 
   coordinates = {longitude: 0, latitude: 0};
   zoom = 12;
@@ -19,6 +19,14 @@ export class DriverHomeComponent implements OnInit {
   lat = 51.673858;
   lng = 7.815982;
   red = '#FF0000';
+  currentZoneID = null;
+  updatedWeight = 1;
+
+  options;
+
+  infoWindowPos = '';
+  infoContent   = '';
+  infoWinOpen   = false;
   taxiIcon = {
     url: './assets/icons/taxi.png',
     scaledSize: {
@@ -26,13 +34,6 @@ export class DriverHomeComponent implements OnInit {
         height: 50
     }
   };
-  currentZoneID = null;
-
-  options;
-
-  infoWindowPos = '';
-  infoContent   = '';
-  infoWinOpen   = false;
 
 
   markers: Marker[] = [
@@ -55,7 +56,7 @@ export class DriverHomeComponent implements OnInit {
       draggable: true
   }];
 
-  driver: Marker;
+  god: Marker;
 
   // zones = [
   //   {paths: [{lat: 48.135, lng: 11.582},
@@ -127,10 +128,10 @@ export class DriverHomeComponent implements OnInit {
           latitude:  +(pos.coords.latitude),
           longitude: +(pos.coords.longitude)
         };
-        this.driver = {
+        this.god = {
           lat: +(pos.coords.latitude),
           lng: +(pos.coords.longitude),
-          label: 'Driver is here',
+          label: 'God is here',
           draggable: false
         };
         console.log(this.options);
@@ -184,15 +185,16 @@ export class DriverHomeComponent implements OnInit {
     this.infoContent = contentString;
     this.infoWinOpen = true;
     this.currentZoneID = id;
+    this.updatedWeight = weight;
 
     console.log(this.infoWindowPos);
   }
 
-  confirmCluster(id) {
-    this.clustersService.confirmCluster(id).then(res => {
+  changeCluster(id, weight) {
+    this.clustersService.updateClusterWeight(id, weight).then(res => {
       if (res) {
         console.log(res);
-        this.zones.filter(zone => zone.id === id)[0].weight = res['Normalized Weight'];
+        this.zones.filter(zone => zone.id === id)[0].weight = res['Updated Weight'];
       }
     });
   }

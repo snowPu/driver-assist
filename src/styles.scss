@@ -3,3 +3,17 @@ body {
     text-align: center;
     align-items: center;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.btn-sixt {
+    background-color: #FF7D19 !important;
+    border-color: #FF7D19 !important;
+    color: white !important;
+}
+
+.btn-sixt:hover {
+    background-color: rgb(201, 91, 7) !important;
+    border-color: rgb(201, 91, 7) !important;
+}

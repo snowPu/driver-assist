@@ -18,12 +18,12 @@ export class GeoLocationService {
       navigator.geolocation.watchPosition((pos: Position) => {
         console.log(pos);
         observer.next(pos);
-      // tslint:disable-next-line:no-unused-expression
-      }), () => { console.log('Position is not available'); },
         // tslint:disable-next-line:no-unused-expression
-        {
-            enableHighAccuracy: true
-        };
+        }), () => { console.log('Position is not available'); },
+            // tslint:disable-next-line:no-unused-expression
+            {
+                enableHighAccuracy: true
+            };
         });
     }
 }

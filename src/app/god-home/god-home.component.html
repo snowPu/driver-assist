@@ -1,0 +1,98 @@
+<div class="row">
+        <div class="col-md-12" *ngIf="zones.length > 0">
+            <h1>Hi God</h1>
+            <agm-map
+            [latitude]="coordinates.latitude"
+            [longitude]="coordinates.longitude"
+            [zoom]="zoom"
+            [disableDefaultUI]="false"
+            [zoomControl]="false"
+            (mapClick)="mapClicked($event)">
+            
+            <agm-polygon *ngFor="let zone of zones" [fillColor]="getColorCode(zone.weight)"
+                [fillOpacity]="0.5" [paths]="zone.paths"
+                [strokeColor]="blue" [strokeOpacity]="0.8" [strokeWeight]="2"
+                [visible]="true" [zIndex]="1"
+                (polyClick)="zoneClick($event, zone.zoneCenter, zone.id, zone.weight)"
+            >
+            
+            <agm-info-window>
+            <strong>InfoWindow content</strong>
+            </agm-info-window>
+            
+            </agm-polygon>
+    <!--  [isOpen]="infoWinOpen" -->
+            <agm-snazzy-info-window #infoWindow 
+           
+            [latitude]="infoWindowPos.lat" 
+            [longitude]="infoWindowPos.lng" 
+            [maxWidth]="300">
+                <ng-template>
+                    {{ infoContent }}
+                    <br>
+                    <div class="form-group">
+                        <label for="updatedzoneweight">Update Weight</label>
+                        <select class="form-control" id="updatedzoneweight" [(ngModel)]="updatedWeight">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sixt" 
+                    (click)="changeCluster(currentZoneID, updatedWeight)">Update Weight</button>
+                </ng-template>
+            </agm-snazzy-info-window>  
+    
+            <agm-marker 
+                (markerClick)="clickedMarker(m.label, i)"
+                [latitude]="god.lat"
+                [longitude]="god.lng"
+                [label]="god.label"
+                [markerDraggable]="god.draggable"
+                (dragEnd)="markerDragEnd(god, $event)">
+                
+                <agm-info-window>
+                <strong>InfoWindow content</strong>
+                </agm-info-window>
+                
+            </agm-marker>
+
+            
+            <ng-container *ngFor="let zone of zones">
+                <agm-marker *ngFor="let taxi of zone.taxis"
+                (markerClick)="clickedMarker(m.label, i)"
+                [latitude]="taxi.lat"
+                [longitude]="taxi.lng"
+                iconAnchorX="30"
+                iconAnchorY="30"
+                [iconUrl]="taxiIcon">
+                    
+                </agm-marker>
+            </ng-container>
+            
+            <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+                [radius]="5000"
+                [fillColor]="'red'"
+                [circleDraggable]="true"
+                [editable]="true">
+            </agm-circle> -->
+            
+            </agm-map>
+    
+            <!-- <div style="height: 300px;" *ngIf="options"
+                leaflet 
+                [leafletOptions]="options">
+            </div> -->
+    
+            <div class="row">
+                <div class="col-md-2 offset-md-1 color-code color-code-5">Very High Demand</div>
+                <div class="col-md-2 color-code color-code-4">High Demand</div>
+                <div class="col-md-2 color-code color-code-3">Average Demand</div>
+                <div class="col-md-2 color-code color-code-2">Low Demand</div>
+                <div class="col-md-2 color-code color-code-1">Very Low Demand</div>
+            </div>
+        </div>
+    </div>
+    
