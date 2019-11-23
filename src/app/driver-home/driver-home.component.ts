@@ -19,6 +19,7 @@ export class DriverHomeComponent implements OnInit {
   lat = 51.673858;
   lng = 7.815982;
   red = '#FF0000';
+  currentZoneID = null;
 
   options;
 
@@ -64,12 +65,19 @@ export class DriverHomeComponent implements OnInit {
   zones: Zone[] = [];
 
   colorCode = {
-    1: '#FA7921',
-    2: '#FE9920',
-    3: '#B9A44C',
-    4: '#566E3D',
-    5: '#0C4767'
+    1: '#f7decb',
+    2: '#ffb57d',
+    3: '#ff9747',
+    4: '#ff8a30',
+    5: '#FF7D19'
   };
+  zoneText = {
+    1: 'Very Poor Demand',
+    2: 'Poor Demand',
+    3: 'Average Demand',
+    4: 'High Demand',
+    5: 'Very High Demand'
+  }
 
   constructor(public geoLocationService: GeoLocationService, public clustersService: ClustersService) {
     // if (navigator) {
@@ -79,7 +87,6 @@ export class DriverHomeComponent implements OnInit {
     //     this.coordinates.latitude = +pos.coords.latitude;
     //   });
     // }
-    
   }
 
   clickedMarker(label: string, index: number) {
@@ -101,7 +108,10 @@ export class DriverHomeComponent implements OnInit {
   ngOnInit() {
 
     this.clustersService.getClusters().then(res => {
-      this.processZones(res);
+      if (res) {
+        console.log(res);
+        this.processZones(res);
+      }
     });
 
     this.geoLocationService.getPosition().subscribe(
@@ -162,13 +172,23 @@ export class DriverHomeComponent implements OnInit {
     return this.colorCode[weight];
   }
 
-  zoneClick(event, center, id) {
-    const contentString = 'Go to zone ' + id;
+  zoneClick(event, center, id, weight) {
+    const contentString = 'Zone ' + id + ' - ' + this.zoneText[weight];
     this.infoWindowPos = center;
     this.infoContent = contentString;
     this.infoWinOpen = true;
+    this.currentZoneID = id;
 
     console.log(this.infoWindowPos);
+  }
+
+  confirmCluster(id) {
+    this.clustersService.confirmCluster(id).then(res => {
+      if (res) {
+        console.log(res);
+        this.zones.filter(zone => zone.id === id)[0].weight = res['Normalized Weight'];
+      }
+    });
   }
 }
 

@@ -9,7 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ClustersService {
 
     constructor(public http: HttpClient) {}
-    endPoint = 'https://damp-inlet-23657.herokuapp.com/getClusters';
+    getClustersEndPoint = 'https://damp-inlet-23657.herokuapp.com/getClusters';
+    confirmClusterEndpoint = 'https://damp-inlet-23657.herokuapp.com/confirmClusters/';
 
     httpHeaders = new HttpHeaders()
             .append('Content-Type', 'application/json')
@@ -18,7 +19,19 @@ export class ClustersService {
             .append('Access-Control-Allow-Origin', '*');
 
     getClusters() {
-        return this.http.get(this.endPoint,
+        return this.http.get(this.getClustersEndPoint,
+            {headers: this.httpHeaders})
+            .toPromise()
+            .then(response => {
+                return response;
+            }).catch(error => {
+                return null;
+            });
+    }
+
+    confirmCluster(id) {
+        const url = this.confirmClusterEndpoint + id + '/driver/100';
+        return this.http.get(url,
             {headers: this.httpHeaders})
             .toPromise()
             .then(response => {
