@@ -1,0 +1,26 @@
+[
+    {
+      "id": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "shortCut": "HOFF",
+      "name": "Head Office",
+      "description": "Head Office, Feringastraße 4, 85774 Unterföhring"
+    },
+    {
+      "id": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
+      "shortCut": "PROD",
+      "name": "Produktionsstätte",
+      "description": "Produktionsstätte, Lindauer Str. 6, 06721 Osterfeld"
+    },
+    {
+      "id": "3116849e-e18d-4afd-8058-156d8d96b593",
+      "shortCut": "LOG-1",
+      "name": "Logistikzentrum I",
+      "description": "Logistikzentrum, 81677 München"
+    },
+    {
+      "id": "9a168210-ae8b-4cbe-b5f9-aa8b36dd5e70",
+      "shortCut": "LOG-2",
+      "name": "Logistikzentrum II",
+      "description": "Logistikzentrum, 81335 München"
+    }
+  ]

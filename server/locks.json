@@ -1,0 +1,482 @@
+ [
+    {
+      "id": "0a1e6f38-6076-4da8-8d6c-87356f975baf",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Gästezimmer 4.OG",
+      "description": null,
+      "serialNumber": "UID-A89F98F3",
+      "floor": "4.OG",
+      "roomNumber": "454"
+    },
+    {
+      "id": "e657a28e-d744-4f62-b5d8-a64123c2400f",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "WC Herren 3.OG süd",
+      "description": null,
+      "serialNumber": "UID-C043133A",
+      "floor": "3.OG",
+      "roomNumber": "WC.HL"
+    },
+    {
+      "id": "be3d6d9e-3e30-4294-af60-bf24afacbefe",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "WC Damen 3.OG süd",
+      "description": null,
+      "serialNumber": "UID-F40C9966",
+      "floor": "3.OG",
+      "roomNumber": "WC.DL"
+    },
+    {
+      "id": "75696d97-2323-4647-b3a0-d59907273467",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "WC Herren 3.OG west",
+      "description": null,
+      "serialNumber": "UID-82CE310A",
+      "floor": "3.OG",
+      "roomNumber": "WC.HR"
+    },
+    {
+      "id": "12fb5bd1-4f9a-44fc-a9ec-a1b3649e81ec",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "WC Damen 3.OG west",
+      "description": null,
+      "serialNumber": "UID-B681BB56",
+      "floor": "3.OG",
+      "roomNumber": "WC.DR"
+    },
+    {
+      "id": "060da4ab-dd20-4539-ac2e-8c47fd0bca50",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Schulungsraum",
+      "description": null,
+      "serialNumber": "UID-5DE29561",
+      "floor": "EG",
+      "roomNumber": "S01"
+    },
+    {
+      "id": "14cfce07-160c-4454-83c2-c7ba29f51796",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Besprechungsraum 1.OG",
+      "description": null,
+      "serialNumber": "UID-9590FAD2",
+      "floor": "1.OG",
+      "roomNumber": "117"
+    },
+    {
+      "id": "40c8a9ef-e533-470e-b127-4f09b791cb88",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Besprechungsraum 3.OG",
+      "description": null,
+      "serialNumber": "UID-F5CC4F99",
+      "floor": "3.OG",
+      "roomNumber": "332"
+    },
+    {
+      "id": "2f4632c2-c980-47c4-9c86-226e4493aba5",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Besprechungsraum 4.OG klein",
+      "description": null,
+      "serialNumber": "UID-234FFA7D",
+      "floor": "4.OG",
+      "roomNumber": "402"
+    },
+    {
+      "id": "0c3d0cd4-a24e-45e9-85dd-80ad7a91ba79",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Besprechungsraum 4.OG groß",
+      "description": null,
+      "serialNumber": "UID-41302C30",
+      "floor": "4.OG",
+      "roomNumber": "408"
+    },
+    {
+      "id": "b386ba3d-aac7-410a-9fa5-9a2b3a989527",
+      "buildingId": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
+      "type": "Cylinder",
+      "name": "Besprechungsraum Osterfeld klein",
+      "description": null,
+      "serialNumber": "UID-43C3F2C8",
+      "floor": null,
+      "roomNumber": "B.01"
+    },
+    {
+      "id": "d4f144db-cdb8-4b85-ae9c-e4603aa6482e",
+      "buildingId": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
+      "type": "Cylinder",
+      "name": "Besprechungsraum Osterfeld groß",
+      "description": null,
+      "serialNumber": "UID-21BC2485",
+      "floor": null,
+      "roomNumber": "B.02"
+    },
+    {
+      "id": "76c06d7e-b2c6-4480-8d26-6e169fb71ee7",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Werkstatt 1",
+      "description": null,
+      "serialNumber": "UID-049E18CE",
+      "floor": "3.OG",
+      "roomNumber": "460"
+    },
+    {
+      "id": "20f8de01-f753-4309-b468-4c33333efd7b",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Werkstatt 2",
+      "description": null,
+      "serialNumber": "UID-B9547400",
+      "floor": "3.OG",
+      "roomNumber": "465"
+    },
+    {
+      "id": "4f055142-fdaa-4dde-866a-ef72311ba52f",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Werkstatt 3",
+      "description": null,
+      "serialNumber": "UID-64C2AD85",
+      "floor": "3.OG",
+      "roomNumber": "468"
+    },
+    {
+      "id": "e4130030-aa93-4847-b0ff-81a86fac3de8",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Flatley/Parker",
+      "description": null,
+      "serialNumber": "UID-27BF2D3B",
+      "floor": "3.OG",
+      "roomNumber": "320"
+    },
+    {
+      "id": "22270680-ce59-4e52-bb0d-f2e43ba20952",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Lang/Denesik",
+      "description": null,
+      "serialNumber": "UID-EBD15B0B",
+      "floor": "3.OG",
+      "roomNumber": "321"
+    },
+    {
+      "id": "11a3bc84-2db4-4a9f-a97b-b734eed94b98",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Blick",
+      "description": null,
+      "serialNumber": "UID-0CA0DC80",
+      "floor": "3.OG",
+      "roomNumber": "322"
+    },
+    {
+      "id": "e04f23cd-bf5e-4a49-96ae-5c8b6b15fc94",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Kertzmann",
+      "description": null,
+      "serialNumber": "UID-C05F8889",
+      "floor": "3.OG",
+      "roomNumber": "323"
+    },
+    {
+      "id": "fab80eca-b474-4b2e-b591-72f1dbbf9737",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Kling/Hauck",
+      "description": null,
+      "serialNumber": "UID-F7F462B3",
+      "floor": "3.OG",
+      "roomNumber": "324"
+    },
+    {
+      "id": "baef89d5-a427-4004-8286-6f048485c77d",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Berge",
+      "description": null,
+      "serialNumber": "UID-58AFDCAB",
+      "floor": "3.OG",
+      "roomNumber": "325"
+    },
+    {
+      "id": "b8866ca5-7f5c-4565-8165-80682853b98f",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Kerluke/Bradtke",
+      "description": null,
+      "serialNumber": "UID-CBDD200B",
+      "floor": "3.OG",
+      "roomNumber": "326"
+    },
+    {
+      "id": "bbe275af-73f6-4357-8478-3b17d966e30d",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Crona/Pacocha",
+      "description": null,
+      "serialNumber": "UID-06D6CE73",
+      "floor": "3.OG",
+      "roomNumber": "327"
+    },
+    {
+      "id": "8dc4171b-706f-48d2-817b-4e2f3a40090c",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Wisozk/Lang",
+      "description": null,
+      "serialNumber": "UID-2D103CA2",
+      "floor": "3.OG",
+      "roomNumber": "328"
+    },
+    {
+      "id": "19bc0a7e-c8ec-4fb6-be47-194885de46a8",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Purdy/Heller",
+      "description": null,
+      "serialNumber": "UID-BDEA281D",
+      "floor": "3.OG",
+      "roomNumber": "329"
+    },
+    {
+      "id": "0b7c9077-f149-4b2d-aaa1-bba4b6fe7599",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Bednar/Maggio/Morar",
+      "description": null,
+      "serialNumber": "UID-B4E3BF8F",
+      "floor": "3.OG",
+      "roomNumber": "339"
+    },
+    {
+      "id": "a28a9ac9-7c40-4254-af06-fff3d4b39b10",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "McLaughlin",
+      "description": null,
+      "serialNumber": "UID-0F8AE86A",
+      "floor": "4.OG",
+      "roomNumber": "436"
+    },
+    {
+      "id": "ac052437-7009-484b-a206-1198b798212d",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "McKenzie/Steuber/Lang",
+      "description": null,
+      "serialNumber": "UID-E37B8571",
+      "floor": "4.OG",
+      "roomNumber": "437"
+    },
+    {
+      "id": "ea4c369b-38ec-4deb-ba65-bb9cdc756e83",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Harris/Bechtelar",
+      "description": null,
+      "serialNumber": "UID-62C8D526",
+      "floor": "4.OG",
+      "roomNumber": "438"
+    },
+    {
+      "id": "6e2998a5-bab1-4692-b954-3aab4cc95d0c",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Veum/Wilderman",
+      "description": null,
+      "serialNumber": "UID-7C487BC3",
+      "floor": "4.OG",
+      "roomNumber": "439"
+    },
+    {
+      "id": "c1545d5b-46b3-4e3c-8a45-4cd077da7136",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Leannon/Donnelly",
+      "description": null,
+      "serialNumber": "UID-B440946B",
+      "floor": "4.OG",
+      "roomNumber": "440"
+    },
+    {
+      "id": "8ad642cb-ca75-42d8-89c6-622a4739b06e",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Sipes/Fay",
+      "description": null,
+      "serialNumber": "UID-5F28F488",
+      "floor": "4.OG",
+      "roomNumber": "441"
+    },
+    {
+      "id": "767d6f18-7d58-4a5e-aad4-94ddf8f83f63",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Turner/Welch",
+      "description": null,
+      "serialNumber": "UID-32E78952",
+      "floor": "4.OG",
+      "roomNumber": "442"
+    },
+    {
+      "id": "df307bab-5362-4f2b-a7ac-14e9d577d348",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Zieme",
+      "description": null,
+      "serialNumber": "UID-0DD11BFD",
+      "floor": "4.OG",
+      "roomNumber": "443"
+    },
+    {
+      "id": "ccf2aa27-187c-4b4b-92b9-251b96192713",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Mohr",
+      "description": null,
+      "serialNumber": "UID-19EAB8A6",
+      "floor": "4.OG",
+      "roomNumber": "428"
+    },
+    {
+      "id": "f07f4996-b027-457d-9fe7-3dd0a2ee5ba2",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "McCullough/Tillman/Halvorson",
+      "description": null,
+      "serialNumber": "UID-B4D3673E",
+      "floor": "4.OG",
+      "roomNumber": "429"
+    },
+    {
+      "id": "41c5952e-5812-44b8-87c2-cf120ea72cc0",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Wilderman/Kohler/Hettinger",
+      "description": null,
+      "serialNumber": "UID-52427309",
+      "floor": "4.OG",
+      "roomNumber": "430"
+    },
+    {
+      "id": "2b9e8a1f-3bf8-433b-8344-3e059b052178",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Gottlieb/Moen/Dach",
+      "description": null,
+      "serialNumber": "UID-46CCEB12",
+      "floor": "4.OG",
+      "roomNumber": "431"
+    },
+    {
+      "id": "9c719fe0-a6b0-4e66-b8c0-613850125a88",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Swift/Bednar/Cassin",
+      "description": null,
+      "serialNumber": "UID-8C16902B",
+      "floor": "4.OG",
+      "roomNumber": "432"
+    },
+    {
+      "id": "d1053e40-c2e8-4805-886c-56a1affe01cc",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Schoen/Hermiston/Kuphal",
+      "description": null,
+      "serialNumber": "UID-CA37EE93",
+      "floor": "4.OG",
+      "roomNumber": "433"
+    },
+    {
+      "id": "41eec2b2-506c-4078-be1a-808e11f9e05c",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "SmartHandle",
+      "name": "Harber/Lubowitz/Mueller",
+      "description": null,
+      "serialNumber": "UID-7495C44A",
+      "floor": "4.OG",
+      "roomNumber": "434"
+    },
+    {
+      "id": "9d644819-543b-4d78-8e63-5976514f0d15",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Berge/Schoen",
+      "description": null,
+      "serialNumber": "UID-722217E0",
+      "floor": "3.OG",
+      "roomNumber": "340"
+    },
+    {
+      "id": "9b663369-3840-402e-b18a-ccabf20d6f7d",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Lemke",
+      "description": null,
+      "serialNumber": "UID-E7A26961",
+      "floor": "3.OG",
+      "roomNumber": "341"
+    },
+    {
+      "id": "bec4b51f-47e8-4105-9278-95bb1cf5ee63",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Carroll/Ebert",
+      "description": null,
+      "serialNumber": "UID-E51A2150",
+      "floor": "3.OG",
+      "roomNumber": "342"
+    },
+    {
+      "id": "31a998da-f4a4-42fa-951c-9af6c29a1766",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Ziemann/Nitzsche",
+      "description": null,
+      "serialNumber": "UID-FA22D6F8",
+      "floor": "3.OG",
+      "roomNumber": "343"
+    },
+    {
+      "id": "5f7d7f12-8fd7-4775-a76e-82c26f44582c",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Harvey",
+      "description": null,
+      "serialNumber": "UID-453C0F28",
+      "floor": "3.OG",
+      "roomNumber": "344"
+    },
+    {
+      "id": "86dd6259-5330-4ba4-8d12-0f2b4d9bd3b0",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Towne/Schmitt",
+      "description": null,
+      "serialNumber": "UID-7E0EF358",
+      "floor": "3.OG",
+      "roomNumber": "345"
+    },
+    {
+      "id": "7d282924-932b-46e6-9023-b54f41bfb592",
+      "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
+      "type": "Cylinder",
+      "name": "Lowe",
+      "description": null,
+      "serialNumber": "UID-2E1DB976",
+      "floor": "3.OG",
+      "roomNumber": "346"
+    }
+  ]
