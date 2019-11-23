@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, redirect, render_template, flash
+from flask import Flask, jsonify, request, redirect, render_template, flash, json
 import os
 
 app = Flask(__name__)
@@ -11,8 +11,11 @@ def hello_world():
 
 
 @app.route('/getClusters', methods=['GET', 'POST'])
-def get_clusters(location):
-    return "No clusters for you."
+def get_clusters(location=0):
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "clusters.json")
+    data = json.load(open(json_url))
+    return  jsonify(data)
 
 
 @app.route('/confirmClusters', methods=['POST'])
