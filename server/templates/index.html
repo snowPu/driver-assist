@@ -1,0 +1,46 @@
+<doctype html>
+<head>
+    <title>SimonsVoss Search App</title>
+</head>
+
+<h2>SimonsVoss Search App</h2>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+{% for message in messages %}
+  <li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.query) }}
+  </dl>
+    <button type=submit  class="btn waves-effect waves-light"> Submit  <i class="material-icons right"></i></button>
+</form>
+
+
+{% for result in results %}
+    <div class="row">
+        <div class="col s3 m12">
+              <div class="card black darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title">{{ result[2] }}</span>
+                        {% for key, value in result[0].items() %}
+                                <p> {{key}}: {{ value }}</p>
+                        {% endfor %}
+                    </div>
+              </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
