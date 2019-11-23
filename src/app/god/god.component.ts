@@ -9,11 +9,11 @@ import { UserService } from 'src/shared/services/user.service';
 import { ZonesService } from 'src/shared/services/zones.service';
 
 @Component({
-  selector: 'app-driver-home',
-  templateUrl: './driver-home.component.html',
-  styleUrls: ['./driver-home.component.scss']
+  selector: 'app-god',
+  templateUrl: './god.component.html',
+  styleUrls: ['./god.component.scss']
 })
-export class DriverHomeComponent implements OnInit {
+export class GodComponent implements OnInit {
 
   coordinates = {latitude: 48.5, longitude: 12};
   zoom = 12;
@@ -50,8 +50,6 @@ export class DriverHomeComponent implements OnInit {
       draggable: true
   }];
 
-  driver: Marker;
-
   // zones = [
   //   {paths: [{lat: 48.135, lng: 11.582},
   //   {lat: 48.5, lng: 12},
@@ -87,24 +85,10 @@ export class DriverHomeComponent implements OnInit {
               public userService: UserService ) {
 
     this.userService.setUser({
-      firstName: 'John',
-      lastName: 'Doe',
-      type: 'driver'
+    firstName: 'Mark',
+    lastName: 'Who',
+    type: 'god'
     });
-    if (navigator) {
-      navigator.geolocation.getCurrentPosition( pos => {
-        console.log(pos.coords.longitude);
-        this.coordinates.longitude = +pos.coords.longitude;
-        this.coordinates.latitude = +pos.coords.latitude;
-      });
-    }
-    // if (navigator) {
-    //   navigator.geolocation.getCurrentPosition( pos => {
-    //     console.log(pos.coords.longitude);
-    //     this.coordinates.longitude = +pos.coords.longitude;
-    //     this.coordinates.latitude = +pos.coords.latitude;
-    //   });
-    // }
   }
 
   clickedMarker(label: string, index: number) {
@@ -128,37 +112,31 @@ export class DriverHomeComponent implements OnInit {
     //   this.zones = this.zonesService.zones;
     //   console.log(this.zones);
     // }
+
     this.zonesService.zonesBS.subscribe(zones => {
       console.log(this.zones);
-      if (zones.length > 0 && (!this.zones  || this.zones.length === 0)) {
+      if (zones.length > 0 && (!this.zones || this.zones.length === 0)) {
         this.zones = zones.slice();
         console.log(this.zones);
       }
     });
 
-    this.geoLocationService.getPosition().subscribe(
-    (pos: Position) => {
-        this.coordinates = {
-          latitude:  +(pos.coords.latitude),
-          longitude: +(pos.coords.longitude)
-        };
-        this.driver = {
-          lat: +(pos.coords.latitude),
-          lng: +(pos.coords.longitude),
-          label: 'Driver is here',
-          draggable: false
-        };
-        this.options = {
-          layers: [
-            tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 })
-          ],
-          zoom: 5,
-          center: latLng(this.coordinates.latitude, this.coordinates.longitude)
-        };
-        console.log(this.options);
-    });
+    // this.geoLocationService.getPosition().subscribe(
+    // (pos: Position) => {
+    //     this.coordinates = {
+    //       latitude:  +(pos.coords.latitude),
+    //       longitude: +(pos.coords.longitude)
+    //     };
+    //     this.options = {
+    //       layers: [
+    //         tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 })
+    //       ],
+    //       zoom: 5,
+    //       center: latLng(this.coordinates.latitude, this.coordinates.longitude)
+    //     };
+    //     console.log(this.options);
+    // });
   }
-
   getColorCode(weight) {
     return this.colorCode[weight];
   }

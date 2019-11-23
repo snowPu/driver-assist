@@ -1,0 +1,49 @@
+<div class="row">
+        <div class="col-md-4 offset-md-4" *ngIf="zones && zones.length > 0" >
+            <h1>Hi {{ userService.user.firstName }} </h1>
+            <agm-map *ngIf="zones && zones.length > 0"
+            [latitude]="coordinates.latitude"
+            [longitude]="coordinates.longitude"
+            [zoom]="zoom"
+            [disableDefaultUI]="false"
+            [zoomControl]="false"
+            (mapClick)="mapClicked($event)"
+            dorebuildall="true">
+            
+            <agm-polygon *ngFor="let zone of zones" [fillColor]="getColorCode(zone.weight)"
+                [fillOpacity]="0.5" [paths]="zone.paths"
+                [strokeColor]="blue" [strokeOpacity]="0.8" [strokeWeight]="2"
+                [visible]="true" [zIndex]="1"
+                (polyClick)="zoneClick($event, zone.zoneCenter, zone.id, zone.weight)"
+            >
+            
+            <agm-info-window>
+            <strong>InfoWindow content</strong>
+            </agm-info-window>
+            
+            </agm-polygon>
+    
+            <agm-snazzy-info-window #infoWindow 
+            [isOpen]="infoWinOpen"
+            [latitude]="infoWindowPos.lat" 
+            [longitude]="infoWindowPos.lng" 
+            [maxWidth]="300">
+                <ng-template>
+                    {{ infoContent }}
+                    <br>
+                    <button class="btn btn-primary" (click)="confirmCluster(currentZoneID)">Go here</button>
+                </ng-template>
+            </agm-snazzy-info-window>  
+            
+            </agm-map>
+    
+            <div class="row">
+                <div class="col-md-2 offset-md-1 color-code color-code-5">Very High Demand</div>
+                <div class="col-md-2 color-code color-code-4">High Demand</div>
+                <div class="col-md-2 color-code color-code-3">Average Demand</div>
+                <div class="col-md-2 color-code color-code-2">Low Demand</div>
+                <div class="col-md-2 color-code color-code-1">Very Low Demand</div>
+            </div>
+        </div>
+    </div>
+    

@@ -8,11 +8,13 @@ import { DriverHomeComponent } from './driver-home/driver-home.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { HttpClientModule } from '@angular/common/http';
+import { GodComponent } from './god/god.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DriverHomeComponent
+    DriverHomeComponent,
+    GodComponent
   ],
   imports: [
     AgmSnazzyInfoWindowModule,
