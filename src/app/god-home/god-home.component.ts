@@ -25,6 +25,9 @@ export class GodHomeComponent implements OnInit {
   updatedWeight = 1;
   dateInput = null;
 
+  holiday = '';
+  busyZonesOnSelectedDate = [];
+
   options;
 
   infoWindowPos = '';
@@ -138,6 +141,7 @@ export class GodHomeComponent implements OnInit {
     });
 
     this.supermarketService.getSupermarkets().then(res => {
+      console.log(res);
       if (res['Munich']) {
         res['Munich'].forEach(markt => {
           this.supermarkets.push({
@@ -166,6 +170,8 @@ export class GodHomeComponent implements OnInit {
   }
 
   processZones(zoneJSON) {
+    const borderColor = 'black';
+    const borderWeight = 2;
     for (const zone of zoneJSON.features) {
       const paths = [];
       let weight = 0;
@@ -197,7 +203,7 @@ export class GodHomeComponent implements OnInit {
         }
       }
       const zoneCenter = {lat: sumLat / cnt, lng: sumLong / cnt};
-      this.zones.push({id, paths, weight, zoneCenter, taxis});
+      this.zones.push({id, paths, weight, zoneCenter, taxis, borderColor, borderWeight});
     }
     console.log(this.zones);
   }
@@ -226,10 +232,33 @@ export class GodHomeComponent implements OnInit {
     });
   }
 
-  getZones(event: MatDatepickerInputEvent<Date>) {
+  getBusyClusters(event: MatDatepickerInputEvent<Date>) {
     const time = event.value.getTime();
     this.clustersService.getBusyClusters(time).then(res => {
       console.log(res);
+      if (res.holiday) {
+        this.holiday = res.holidayName;
+        this.busyZonesOnSelectedDate = res.busyClusters;
+        this.zones.forEach(zone => {
+          zone.borderColor = 'black',
+          zone.borderWeight = 2;
+        });
+        this.zones.filter(zone => this.busyZonesOnSelectedDate
+          .includes(zone.id)).forEach(zone => {
+            zone.borderColor = 'red';
+            zone.borderWeight = 4;
+          });
+
+        console.log(this.zones);
+
+      } else {
+        this.holiday = '';
+        this.zones.forEach(zone => {
+          zone.borderColor = 'black',
+          zone.borderWeight = 2;
+        });
+      }
+      console.log(this.holiday);
     });
   }
 }
@@ -250,6 +279,8 @@ interface Zone {
   weight: number;
   zoneCenter: Coord;
   taxis: Coord[];
+  borderColor: string;
+  borderWeight: number;
 }
 
 interface Coord {

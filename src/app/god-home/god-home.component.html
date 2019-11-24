@@ -14,9 +14,13 @@
         [zoomControl]="false"
         (mapClick)="mapClicked($event)">
         
-        <agm-polygon *ngFor="let zone of zones" [fillColor]="getColorCode(zone.weight)"
-            [fillOpacity]="0.5" [paths]="zone.paths"
-            [strokeColor]="blue" [strokeOpacity]="0.8" [strokeWeight]="2"
+        <agm-polygon *ngFor="let zone of zones" 
+            [fillColor]="getColorCode(zone.weight)"
+            [fillOpacity]="0.5" 
+            [paths]="zone.paths"
+            [strokeColor]="zone.borderColor" 
+            strokeOpacity="0.8" 
+            [strokeWeight]="zone.borderWeight"
             [visible]="true" [zIndex]="1"
             (polyClick)="zoneClick($event, zone.zoneCenter, zone.id, zone.weight)"
         >
@@ -116,12 +120,15 @@
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Check Busy Zones on Date"
                         [(ngModel)]="dateInput"
-                        (dateInput)="getZones($event)" (dateChange)="getZones($event)">
+                        (dateInput)="getBusyClusters($event)" (dateChange)="getBusyClusters($event)">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <div class="busy-zones-display">
                 {{ dateInput | date }}
+                <div *ngIf="holiday">
+                    <p>As it's {{ holiday }} on {{ dateInput | date }}, zones {{ busyZonesOnSelectedDate }} will be quite busy.</p>
+                </div>
             </div>
         </div>
     </div>
